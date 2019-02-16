@@ -56,9 +56,8 @@ class App extends Component {
   }
 
   // We want to be able to add a name to the contact list
-  addContact = (event) => {
-    event.preventDefault();
-    console.log(event.target);
+  addContact = (contact) => {
+    console.log(contact);
   }
 
   // we want to be able to remove a contact
