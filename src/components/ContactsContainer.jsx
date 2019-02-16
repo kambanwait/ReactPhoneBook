@@ -39,7 +39,7 @@ export default (props) => {
           <h4>{contact.name}</h4>
           <p>{contact.phone_number}</p>
           <address>{contact.address}</address>
-          <button onClick={() => props.removeContact(contact.name)}>Remove contact X</button>
+          <button onClick={function () { props.removeContact(contact.name) }}>Remove contact X</button>
         </li>
       )
     })
