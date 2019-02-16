@@ -1,10 +1,29 @@
 import React from 'react';
 
-const Contacts = () => {
+import Sort from '../components/Sort';
+
+const Contacts = props => {
+
+  let contactList = props.contacts.map(function (contact, index) {
+    return (
+      <li key={index}>
+        <h4>{contact.name}</h4>
+        <p>{contact.phone_number}</p>
+        <address>{contact.address}</address>
+        <button onClick={props.removeContact}>Remove contact X</button>
+      </li>
+    )
+  })
+
+  const contacts = props.loading ? 'loading...' : contactList;
+
   return (
-    <ul>
-      <li>contact name and number</li>
-    </ul>
+    <React.Fragment>
+      <Sort />
+      <ul>
+        {contacts}
+      </ul>
+    </React.Fragment>
   );
 }
 
