@@ -8,6 +8,7 @@ export default (props) => {
   // sort the list ascending/descending depending on state value
   const sortByName = (a, b) => {
     if (props.sortContactValue === 'ascending') {
+      // ascending
       if (a.name < b.name) {
         return -1;
       }
@@ -15,6 +16,7 @@ export default (props) => {
         return 1;
       }
     } else {
+      // descending
       if (a.name > b.name) {
         return -1;
       }
