@@ -62,9 +62,14 @@ class App extends Component {
   }
 
   // we want to be able to remove a contact
-  removeContact = event => {
-    event.preventDefault();
-    console.log('Remove contact clicked');
+  removeContact = contactToBeRemoved => {
+    var filteredContacts = this.state.contacts.filter(function (contact) {
+      return contact.name !== contactToBeRemoved
+    })
+
+    this.setState({
+      contacts: filteredContacts
+    })
   }
 
   render() {
