@@ -36,10 +36,10 @@ export default (props) => {
     .map((contact, index) => {
       return (
         <li key={index}>
-          <h4>#{index} {contact.name}</h4>
+          <h4>{contact.name}</h4>
           <p>{contact.phone_number}</p>
           <address>{contact.address}</address>
-          <button onClick={props.removeContact}>Remove contact X</button>
+          <button onClick={() => props.removeContact(contact.name)}>Remove contact X</button>
         </li>
       )
     })
