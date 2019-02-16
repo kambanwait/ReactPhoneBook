@@ -16,6 +16,7 @@ class App extends Component {
     this.state = {
       contacts: [],
       filterText: '',
+      sortContactValue: 'ascending',
       loading: true
     }
   }
@@ -48,8 +49,10 @@ class App extends Component {
   }
 
   // We want to sort them by name in de/ascending order
-  sortContacts = (event) => {
-    // return contacts;
+  sortContacts = (value) => {
+    this.setState({
+      sortContactValue: value
+    })
   }
 
   // We want to be able to add a name to the contact list
@@ -71,10 +74,12 @@ class App extends Component {
         <AddContact addContact={this.addContact} />
         <ContactsContainer
           contacts={this.state.contacts}
-          loading={this.state.loading}
           filterText={this.state.filterText}
           filterUpdate={this.filterUpdate.bind(this)}
+          sortContacts={this.sortContacts}
+          sortContactValue={this.state.sortContactValue}
           removeContact={this.removeContact}
+          loading={this.state.loading}
         />
       </React.Fragment>
     );
