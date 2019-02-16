@@ -1,3 +1,6 @@
+# ReactPhoneBook
+A Reactjs phone book app where you can add, remove and sort a contact list
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
