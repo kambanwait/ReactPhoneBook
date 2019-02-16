@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Header from './components/Header';
 import AddContact from './components/AddContact';
-import Contacts from './components/Contacts';
+import ContactsContainer from './components/ContactsContainer';
 
 import './App.css';
 
@@ -14,7 +14,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      contacts: ["no contacts"],
+      contacts: [],
       loading: true
     }
   }
@@ -52,17 +52,20 @@ class App extends Component {
     console.log('Remove contact clicked');
   }
 
-
   // Now we want to be able to search the names
 
   // We want to be able to add a name to the contact list
+  sortContacts = contacts => {
+    // return contact list once sorted
+    return contacts;
+  }
 
   render() {
     return (
       <React.Fragment>
         <Header title="Kam's Phone Book" />
         <AddContact addContact={this.addContact} />
-        <Contacts removeContact={this.removeContact} contacts={this.state.contacts} loading={this.state.loading} />
+        <ContactsContainer removeContact={this.removeContact} contacts={this.state.contacts} loading={this.state.loading} filterText="Level" />
       </React.Fragment>
     );
   }
