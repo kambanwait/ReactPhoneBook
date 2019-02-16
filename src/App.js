@@ -15,6 +15,7 @@ class App extends Component {
 
     this.state = {
       contacts: [],
+      filterText: '',
       loading: true
     }
   }
@@ -39,25 +40,28 @@ class App extends Component {
       )
   }
 
-  // Now that we have contacts we want to sort them by name in de/ascending order
-  // we want to be able to remove a contact
+  // Now we want to be able to search the names
+  filterUpdate(value) {
+    this.setState({
+      filterText: value
+    })
+  }
 
+  // We want to sort them by name in de/ascending order
+  sortContacts = (event) => {
+    // return contacts;
+  }
+
+  // We want to be able to add a name to the contact list
   addContact = (event) => {
     event.preventDefault();
     console.log(event.target);
   }
 
+  // we want to be able to remove a contact
   removeContact = event => {
     event.preventDefault();
     console.log('Remove contact clicked');
-  }
-
-  // Now we want to be able to search the names
-
-  // We want to be able to add a name to the contact list
-  sortContacts = contacts => {
-    // return contact list once sorted
-    return contacts;
   }
 
   render() {
@@ -65,7 +69,13 @@ class App extends Component {
       <React.Fragment>
         <Header title="Kam's Phone Book" />
         <AddContact addContact={this.addContact} />
-        <ContactsContainer removeContact={this.removeContact} contacts={this.state.contacts} loading={this.state.loading} filterText="Level" />
+        <ContactsContainer
+          contacts={this.state.contacts}
+          loading={this.state.loading}
+          filterText={this.state.filterText}
+          filterUpdate={this.filterUpdate.bind(this)}
+          removeContact={this.removeContact}
+        />
       </React.Fragment>
     );
   }

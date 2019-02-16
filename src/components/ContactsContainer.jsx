@@ -1,19 +1,14 @@
 import React from 'react';
 
-import Sort from './ContactsSort';
+import SortSearchContacts from './SortSearchContacts';
 import ContactsList from './ContactsList'
 
-const ContactsContainer = props => {
+export default (props) => {
 
-  // const FilteredName = contacts => {
-  //   console.log(contacts)
-  //   return true;
-  // }
-
-  let contactList = props.contacts
+  const contactList = props.contacts
     .filter(contact => { // contact = individual array item
       // check each contact.name value for filtered text and only show the "true" result
-      return contact.name.indexOf(props.filterText) >= 0;
+      return contact.name.toLowerCase().indexOf(props.filterText.toLowerCase()) >= 0;
     })
     .map((contact, index) => {
       return (
@@ -30,10 +25,8 @@ const ContactsContainer = props => {
 
   return (
     <React.Fragment>
-      <Sort />
+      <SortSearchContacts filterUpdate={props.filterUpdate} />
       <ContactsList contactsSorted={contacts} />
     </React.Fragment>
   );
 }
-
-export default ContactsContainer;
