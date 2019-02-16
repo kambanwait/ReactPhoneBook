@@ -57,7 +57,11 @@ class App extends Component {
 
   // We want to be able to add a name to the contact list
   addContact = (contact) => {
-    console.log(contact);
+    this.setState(currentState => {
+      return {
+        contacts: [contact, ...currentState.contacts]
+      }
+    });
   }
 
   // we want to be able to remove a contact
