@@ -15,11 +15,16 @@ class AddContact extends Component {
     )
   };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.addContact(this.state);
+  };
+
   render() {
     return (
       <React.Fragment>
         <h3>Add a new contact</h3>
-        <form onSubmit={this.props.addContact}>
+        <form onSubmit={this.handleSubmit}>
           <div>
             <label>Name:</label>
             <input name="name" type="text" onChange={this.onChange} />
