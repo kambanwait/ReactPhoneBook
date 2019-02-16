@@ -1,10 +1,10 @@
 import React from 'react';
 
-const AddContact = () => {
+const AddContact = props => {
   return (
     <React.Fragment>
       <h3>Add a new contact</h3>
-      <form>
+      <form onSubmit={props.addContact}>
         <div>
           <label>Name:</label>
           <input type="text" />
@@ -13,6 +13,8 @@ const AddContact = () => {
           <label>Number:</label>
           <input type="number" />
         </div>
+
+        <button type="submit">Add contact</button>
       </form>
       <hr />
     </React.Fragment>
